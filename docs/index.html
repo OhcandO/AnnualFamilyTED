@@ -2,19 +2,600 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Family Insights 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="description" content="FAMILY TED 2026 — 한 사람당 15분, 자신의 세계를 발표하는 우리 가족의 첫 컨퍼런스" />
+<meta name="theme-color" content="#050505" />
+<title>FAMILY TED 2026 — 우리 가족의 첫 컨퍼런스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --orange: #FF7A1A;
+    --orange-deep: #E8590C;
+    --orange-soft: #FFD9B3;
+    --black: #050505;
+    --chalk: #FAF6F0;
+    --ink: #2B2118;
+    --ink-soft: #5C4A38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.75;
+    background: var(--black);
+    color: var(--chalk);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    word-break: keep-all;
+  }
+  @media (min-width: 768px) { body { font-size: 19px; } }
+
+  .display { font-family: "Black Han Sans", "Noto Sans KR", sans-serif; font-weight: 400; line-height: 1.15; }
+  .wrap { max-width: 880px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
+  section { position: relative; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 18px;
+  }
+  .section-title { font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
+  .lead { font-size: clamp(19px, 4.4vw, 23px); }
+
+  /* ---------- reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- 1. HERO (Netflix) ---------- */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(110% 65% at 50% 108%, rgba(255,122,26,0.32) 0%, rgba(255,122,26,0.07) 45%, rgba(255,122,26,0) 70%),
+      radial-gradient(80% 50% at 50% -12%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 60%),
+      var(--black);
+    padding: 88px 24px 72px;
+  }
+  .brand-chip {
+    font-family: "Black Han Sans", sans-serif;
+    background: var(--orange);
+    color: #140A02;
+    font-size: 22px;
+    padding: 6px 14px 4px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 0 36px rgba(255,122,26,0.55);
+    margin-bottom: 30px;
+  }
+  .hero-eyebrow {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(250,246,240,0.75);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: clamp(58px, 15vw, 130px);
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+    background: linear-gradient(180deg, #FFFFFF 18%, #FFC894 58%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 10px 44px rgba(255,122,26,0.32));
+  }
+  .hero-sub {
+    margin-top: 22px;
+    font-size: clamp(19px, 4.6vw, 25px);
+    font-weight: 700;
+    color: var(--chalk);
+    max-width: 560px;
+  }
+  .hero-sub strong { color: var(--orange); }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px; }
+  .hero-badges span {
+    border: 1px solid rgba(250,246,240,0.32);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(250,246,240,0.92);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(4px);
+  }
+  .scroll-cue { margin-top: 54px; display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(250,246,240,0.65); font-size: 14px; font-weight: 700; letter-spacing: 0.18em; }
+  .scroll-cue svg { animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); opacity:.55; } 50% { transform: translateY(8px); opacity:1; } }
+  @media (prefers-reduced-motion: reduce) { .scroll-cue svg { animation: none; } }
+
+  /* ---------- color bridges ---------- */
+  .bridge { height: 180px; }
+  .b-1 { background: linear-gradient(180deg, var(--black), #15100C); }
+  .b-2 { background: linear-gradient(180deg, #15100C, #2B1B0E); }
+  .b-3 { background: linear-gradient(180deg, #2B1B0E 0%, #6E4220 45%, #D99A5B 78%, #FAE5C8 100%); }
+  .b-4 { background: linear-gradient(180deg, #FAE5C8, #FDF3E3); }
+  .b-5 { background: linear-gradient(180deg, #FDF3E3, #FFFBF5); }
+  .b-6 { background: linear-gradient(180deg, #FFFBF5, #FFF4E8); }
+
+  /* ---------- 2. INVITE (dark) ---------- */
+  .invite { background: #15100C; padding: 64px 0 80px; }
+  .invite p { color: rgba(250,246,240,0.88); max-width: 640px; }
+  .invite .punch { margin-top: 30px; font-size: clamp(26px, 6vw, 40px); color: #fff; }
+  .invite .punch em { font-style: normal; color: var(--orange); }
+
+  /* ---------- 3. TED 소개 (dark warm) ---------- */
+  .ted { background: #2B1B0E; padding: 80px 0 90px; }
+  .ted p.intro { color: rgba(250,240,228,0.9); max-width: 640px; margin-bottom: 40px; }
+  .ted-cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .ted-cards { grid-template-columns: 1fr 1fr; } }
+  .ted-card {
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,160,90,0.22);
+    border-radius: 18px;
+    padding: 26px 24px;
+  }
+  .ted-card .num { font-family: "Black Han Sans", sans-serif; font-size: 30px; color: var(--orange); display: block; margin-bottom: 8px; }
+  .ted-card h3 { font-size: 21px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .ted-card p { font-size: 17px; color: rgba(250,240,228,0.82); line-height: 1.7; }
+  .ours {
+    margin-top: 44px;
+    border-radius: 20px;
+    border: 2px solid var(--orange);
+    background: linear-gradient(180deg, rgba(255,122,26,0.14), rgba(255,122,26,0.05));
+    padding: 30px 26px;
+  }
+  .ours h3 { font-size: clamp(22px, 5vw, 27px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+  .ours h3 span { color: var(--orange); }
+  .ours ul { list-style: none; }
+  .ours li { display: flex; gap: 12px; align-items: flex-start; padding: 9px 0; font-size: 18px; color: rgba(255,250,244,0.95); }
+  .ours li::before { content: "✓"; flex: none; font-weight: 900; color: var(--orange); margin-top: 1px; }
+
+  /* ---------- 4. TIMELINE (dawn → light) ---------- */
+  .flow { background: #FDF3E3; color: var(--ink); padding: 72px 0 90px; }
+  .flow .eyebrow { color: var(--orange-deep); }
+  .flow .lead { color: var(--ink-soft); max-width: 600px; }
+  .timeline { margin-top: 46px; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 37px; top: 14px; bottom: 14px; width: 3px; border-radius: 3px; background: var(--orange-soft); }
+  .t-item { position: relative; display: flex; gap: 22px; padding: 18px 0; }
+  .t-dot {
+    flex: none; width: 78px; height: 78px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px; z-index: 1;
+    box-shadow: 0 6px 18px rgba(232,89,12,0.18);
+  }
+  .t-body { padding-top: 6px; }
+  .t-time { display: inline-block; font-weight: 900; font-size: 15px; letter-spacing: 0.06em; color: #fff; background: var(--orange-deep); border-radius: 999px; padding: 3px 14px; margin-bottom: 6px; }
+  .t-body h3 { font-size: clamp(21px, 5vw, 25px); font-weight: 900; color: var(--ink); }
+  .t-body p { font-size: 17px; color: var(--ink-soft); margin-top: 4px; max-width: 480px; }
+  .flow-note { margin-top: 34px; font-size: 16px; color: var(--ink-soft); background: rgba(255,255,255,0.7); border: 1px dashed var(--orange); border-radius: 14px; padding: 16px 20px; }
+
+  /* ---------- 5. VENUE (light) ---------- */
+  .venue { background: #FFFBF5; color: var(--ink); padding: 76px 0 90px; }
+  .venue .eyebrow { color: var(--orange-deep); }
+  .tba { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; font-weight: 900; font-size: 16px; border-radius: 999px; padding: 8px 20px; margin-bottom: 18px; }
+  .tba .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:.45; transform: scale(.85);} 50% { opacity:1; transform: scale(1.15);} }
+  @media (prefers-reduced-motion: reduce) { .tba .pulse { animation: none; } }
+  .venue .lead { color: var(--ink-soft); max-width: 620px; }
+  .room-art { margin: 44px auto 10px; max-width: 640px; }
+  .room-art svg { width: 100%; height: auto; display: block; border-radius: 22px; box-shadow: 0 24px 60px -28px rgba(92,58,20,0.45); }
+  .room-caption { text-align: center; font-size: 15px; color: var(--ink-soft); margin-top: 12px; }
+  .facilities { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+  @media (min-width: 640px) { .facilities { grid-template-columns: repeat(4, 1fr); } }
+  .fac {
+    background: #fff; border: 1.5px solid #F2E3CE; border-radius: 18px;
+    padding: 20px 14px; text-align: center;
+    box-shadow: 0 10px 26px -18px rgba(92,58,20,0.35);
+  }
+  .fac .ico { font-size: 32px; display: block; margin-bottom: 8px; }
+  .fac strong { display: block; font-size: 17px; font-weight: 900; color: var(--ink); }
+  .fac span { font-size: 14px; color: var(--ink-soft); }
+
+  /* ---------- 6. DRESS CODE (lightest) ---------- */
+  .dress { background: #FFF4E8; color: var(--ink); padding: 76px 0 90px; }
+  .dress .eyebrow { color: var(--orange-deep); }
+  .dress .lead { color: var(--ink-soft); max-width: 620px; }
+  .dress .big-orange { font-size: clamp(38px, 9vw, 64px); color: var(--orange-deep); margin: 8px 0 14px; }
+  .items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; }
+  @media (min-width: 640px) { .items { grid-template-columns: repeat(3, 1fr); } }
+  .item {
+    background: #fff; border-radius: 20px; padding: 22px 16px 18px;
+    text-align: center; border: 1.5px solid #FBE2C8;
+    box-shadow: 0 12px 30px -20px rgba(232,89,12,0.4);
+    transition: transform .25s ease;
+  }
+  .item:hover { transform: translateY(-5px); }
+  .item svg { width: 92px; height: 92px; }
+  .item strong { display: block; font-size: 17px; font-weight: 900; margin-top: 10px; color: var(--ink); }
+  .item span { font-size: 14px; color: var(--ink-soft); }
+  .dress-tip {
+    margin-top: 36px; display: flex; gap: 14px; align-items: flex-start;
+    background: #fff; border-left: 6px solid var(--orange); border-radius: 14px;
+    padding: 20px 22px; font-size: 17px; color: var(--ink-soft);
+    box-shadow: 0 10px 26px -20px rgba(92,58,20,0.4);
+  }
+  .dress-tip .emoji { font-size: 26px; line-height: 1.2; }
+  .dress-tip strong { color: var(--orange-deep); }
+
+  /* ---------- 7. CLOSING ---------- */
+  .closing {
+    background:
+      radial-gradient(120% 90% at 50% 115%, rgba(255,122,26,0.28) 0%, rgba(255,122,26,0) 60%),
+      #FFFBF5;
+    color: var(--ink);
+    padding: 90px 0 100px;
+    text-align: center;
+  }
+  .closing .section-title { font-size: clamp(30px, 7vw, 48px); }
+  .closing p { color: var(--ink-soft); max-width: 560px; margin: 0 auto; }
+  .ready { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 34px 0 8px; }
+  .ready span {
+    background: #fff; border: 2px solid var(--orange); color: var(--orange-deep);
+    font-weight: 900; font-size: 16px; border-radius: 999px; padding: 10px 22px;
+    box-shadow: 0 10px 24px -16px rgba(232,89,12,0.5);
+  }
+  .closing .small { margin-top: 26px; font-size: 15px; }
+
+  /* ---------- footer ---------- */
+  footer { background: #15100C; color: rgba(250,246,240,0.66); padding: 44px 0 calc(40px + env(safe-area-inset-bottom)); font-size: 15px; text-align: center; }
+  footer a { color: var(--orange); text-decoration: none; font-weight: 700; }
+  footer a:hover { text-decoration: underline; }
+  footer .editions { margin-bottom: 14px; }
+  footer .editions span { margin: 0 8px; color: rgba(250,246,240,0.3); }
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="brand-chip">F:T</div>
+  <p class="hero-eyebrow">A Family Original · Vol. 01</p>
+  <h1 class="hero-title display">FAMILY<br/>TED</h1>
+  <p class="hero-sub">한 사람당 <strong>15분</strong>의 무대.<br/>가장 가까운 사람들의 가장 낯선 이야기.</p>
+  <div class="hero-badges">
+    <span>📅 2026년 7월 (토)</span>
+    <span>📍 파티룸 · 장소 TBA</span>
+    <span>👨‍👩‍👧‍👦 가족 초대제</span>
+  </div>
+  <div class="scroll-cue">
+    <span>아래로 스크롤</span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<div class="bridge b-1"></div>
+
+<!-- 2. INVITE -->
+<section class="invite">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Invitation · 초대의 글</span>
+      <h2 class="section-title display">올해, 우리는<br/>무대를 엽니다</h2>
+      <p class="lead">우리는 자주 만나지만, 서로가 요즘 어떤 일에 마음을 쏟고 있는지 차분히 들어볼 기회는 의외로 적었습니다.</p>
+      <p style="margin-top:16px;">그래서 올해는 판을 깔기로 했습니다. 마이크를 켜고, 화면을 띄우고, 한 사람씩 무대에 올라 자신의 세계를 보여주는 — 우리 가족만의 작은 컨퍼런스입니다.</p>
+      <p class="punch display">익숙한 얼굴의<br/><em>낯선 면</em>을 만나는 하루.</p>
+    </div>
+  </div>
+</section>
+
+<div class="bridge b-2"></div>
+
+<!-- 3. TED 소개 -->
+<section class="ted">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">What is TED?</span>
+      <h2 class="section-title display">TED가 처음이신가요?</h2>
+      <p class="intro lead">TED는 세계에서 가장 유명한 강연 무대입니다. 과학자도, 요리사도, 학생도 무대에 올라 <b>자신이 가장 사랑하는 주제</b>를 짧고 쉽게 이야기합니다. 어렵지 않아요 — 이렇게 진행됩니다.</p>
+    </div>
+    <div class="ted-cards">
+      <div class="ted-card reveal">
+        <span class="num">1</span>
+        <h3>한 사람, 하나의 이야기</h3>
+        <p>무대에는 발표자 한 명만 오릅니다. 자신이 제일 좋아하는 주제를, 자신의 말로 들려줍니다.</p>
+      </div>
+      <div class="ted-card reveal">
+        <span class="num">2</span>
+        <h3>짧고 가볍게</h3>
+        <p>발표는 길어야 15분. 지루해질 틈이 없도록 짧게, 핵심만 이야기합니다.</p>
+      </div>
+      <div class="ted-card reveal">
+        <span class="num">3</span>
+        <h3>형식은 자유</h3>
+        <p>화면에 사진을 띄워도 좋고, 물건을 직접 보여줘도 좋고, 시연이나 공연도 환영입니다.</p>
+      </div>
+      <div class="ted-card reveal">
+        <span class="num">4</span>
+        <h3>듣는 사람은 편안하게</h3>
+        <p>시험도 숙제도 없습니다. 호기심을 갖고 듣다가, 끝나면 큰 박수와 질문 하나면 충분합니다.</p>
+      </div>
+    </div>
+    <div class="ours reveal">
+      <h3>우리 가족 버전은 <span>이렇게</span> 합니다</h3>
+      <ul>
+        <li>주제는 완전 자유 — 일, 취미, 여행, 레시피, 인생 이야기 무엇이든 좋습니다.</li>
+        <li>한 사람당 15분 안팎. 짧아도 괜찮습니다.</li>
+        <li>발표 자료는 자유. 슬라이드 없이 맨몸으로 이야기해도 됩니다.</li>
+        <li>발표가 끝나면 다 함께 박수, 그리고 자유로운 질문 타임.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="bridge b-3"></div>
+
+<!-- 4. 하루의 흐름 -->
+<section class="flow">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Timeline · 하루의 흐름</span>
+      <h2 class="section-title display">이날 하루는<br/>이렇게 흘러갑니다</h2>
+      <p class="lead">든든하게 점심을 먹고, 파티룸으로 자리를 옮겨 본격적으로 시작합니다.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-dot">🍚</div>
+        <div class="t-body">
+          <span class="t-time">11:30</span>
+          <h3>다 같이 점심 식사</h3>
+          <p>가볍고 빠르게! 든든히 먹고 출발합니다.</p>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">🚗</div>
+        <div class="t-body">
+          <span class="t-time">13:00</span>
+          <h3>파티룸으로 이동</h3>
+          <p>예약된 파티룸으로 함께 이동해 자리를 잡습니다.</p>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">🎤</div>
+        <div class="t-body">
+          <span class="t-time">13:30</span>
+          <h3>FAMILY TED 본행사</h3>
+          <p>한 사람씩 무대로! 발표 15분 + 박수 + 질문. 발표 순서는 추첨으로 정합니다.</p>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">🍰</div>
+        <div class="t-body">
+          <span class="t-time">15:30</span>
+          <h3>다과 & 수다 타임</h3>
+          <p>커피 · 과일 · 디저트와 함께 못다 한 이야기를 나눕니다.</p>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot">📸</div>
+        <div class="t-body">
+          <span class="t-time">17:00</span>
+          <h3>기념사진 · 종료</h3>
+          <p>다 함께 단체 사진을 남기고 마무리합니다.</p>
+        </div>
+      </div>
+    </div>
+    <p class="flow-note reveal">⏰ 위 시간은 분위기 전달용 <b>가안</b>입니다. 날짜와 시간이 확정되면 다시 안내드릴게요.</p>
+  </div>
+</section>
+
+<div class="bridge b-4"></div>
+
+<!-- 5. VENUE -->
+<section class="venue">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Venue · 장소</span>
+      <h2 class="section-title display">장소는 곧 공개됩니다</h2>
+      <div class="tba"><span class="pulse"></span> TBA — 확정되는 대로 안내드려요</div>
+      <p class="lead">기본적으로 <b>파티룸</b>을 빌릴 예정입니다. 발표하기 좋은 장비가 모두 갖춰진 곳으로 준비하고 있어요.</p>
+    </div>
+    <div class="room-art reveal" aria-hidden="true">
+      <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="파티룸 일러스트: 스크린, 프로젝터, 작은 무대, 마이크">
+        <rect width="640" height="400" fill="#3A2A1C"/>
+        <rect width="640" height="290" fill="#46331F"/>
+        <rect y="290" width="640" height="110" fill="#2B1F12"/>
+        <!-- string lights -->
+        <path d="M0 36 Q160 76 320 36 Q480 -4 640 36" fill="none" stroke="#6E5232" stroke-width="3"/>
+        <g fill="#FFC861">
+          <circle cx="60" cy="49" r="7"/><circle cx="150" cy="62" r="7"/><circle cx="240" cy="56" r="7"/>
+          <circle cx="330" cy="36" r="7"/><circle cx="420" cy="22" r="7"/><circle cx="510" cy="18" r="7"/><circle cx="590" cy="30" r="7"/>
+        </g>
+        <!-- screen -->
+        <rect x="170" y="74" width="300" height="178" rx="8" fill="#FFF8EC" stroke="#1E140A" stroke-width="6"/>
+        <text x="320" y="150" text-anchor="middle" font-family="'Black Han Sans','Noto Sans KR',sans-serif" font-size="40" fill="#FF7A1A">FAMILY TED</text>
+        <text x="320" y="196" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-weight="700" font-size="20" fill="#5C4A38">Vol. 01 — 2026</text>
+        <!-- projector beam -->
+        <polygon points="320,330 175,84 465,84" fill="#FFE9C2" opacity="0.14"/>
+        <!-- projector -->
+        <rect x="288" y="318" width="64" height="26" rx="6" fill="#1E140A"/>
+        <circle cx="320" cy="331" r="7" fill="#FFC861"/>
+        <!-- stage -->
+        <rect x="120" y="252" width="400" height="38" rx="6" fill="#A66A2E"/>
+        <rect x="120" y="252" width="400" height="10" rx="5" fill="#C8854A"/>
+        <!-- mic stand -->
+        <line x1="430" y1="206" x2="430" y2="252" stroke="#1E140A" stroke-width="5"/>
+        <path d="M412 252 h36" stroke="#1E140A" stroke-width="5" stroke-linecap="round"/>
+        <rect x="419" y="170" width="22" height="34" rx="11" fill="#FF7A1A"/>
+        <path d="M412 188 a18 18 0 0 0 36 0" fill="none" stroke="#1E140A" stroke-width="4"/>
+        <!-- speaker boxes -->
+        <rect x="136" y="206" width="34" height="46" rx="4" fill="#1E140A"/>
+        <circle cx="153" cy="222" r="8" fill="#46331F"/>
+        <circle cx="153" cy="240" r="5" fill="#46331F"/>
+        <rect x="470" y="206" width="34" height="46" rx="4" fill="#1E140A"/>
+        <circle cx="487" cy="222" r="8" fill="#46331F"/>
+        <circle cx="487" cy="240" r="5" fill="#46331F"/>
+        <!-- audience chairs -->
+        <g fill="#1E140A">
+          <rect x="150" y="346" width="44" height="12" rx="6"/>
+          <rect x="230" y="352" width="44" height="12" rx="6"/>
+          <rect x="310" y="356" width="44" height="12" rx="6"/>
+          <rect x="390" y="352" width="44" height="12" rx="6"/>
+          <rect x="470" y="346" width="44" height="12" rx="6"/>
+        </g>
+        <!-- bunting -->
+        <path d="M40 90 Q105 120 170 96" fill="none" stroke="#6E5232" stroke-width="3"/>
+        <g>
+          <polygon points="66,100 82,102 72,118" fill="#FF7A1A"/>
+          <polygon points="104,110 120,110 112,126" fill="#FFC861"/>
+          <polygon points="142,104 158,102 150,119" fill="#FF7A1A"/>
+        </g>
+        <path d="M470 96 Q535 120 600 90" fill="none" stroke="#6E5232" stroke-width="3"/>
+        <g>
+          <polygon points="494,104 510,106 500,121" fill="#FFC861"/>
+          <polygon points="530,111 546,111 538,127" fill="#FF7A1A"/>
+          <polygon points="568,105 584,102 576,119" fill="#FFC861"/>
+        </g>
+      </svg>
+    </div>
+    <p class="room-caption reveal">이런 분위기의 공간을 상상하시면 됩니다 ✨</p>
+    <div class="facilities">
+      <div class="fac reveal"><span class="ico">📽️</span><strong>프로젝터 & 스크린</strong><span>슬라이드·사진·영상 모두 OK</span></div>
+      <div class="fac reveal"><span class="ico">🎤</span><strong>마이크 & 스피커</strong><span>목소리 걱정 없이 또렷하게</span></div>
+      <div class="fac reveal"><span class="ico">🎭</span><strong>작은 무대</strong><span>주인공이 되는 자리</span></div>
+      <div class="fac reveal"><span class="ico">🛋️</span><strong>편안한 좌석</strong><span>관객은 느긋하게 감상</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="bridge b-6"></div>
+
+<!-- 6. DRESS CODE -->
+<section class="dress">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Dress Code · 드레스 코드</span>
+      <h2 class="section-title display">딱 한 가지만 기억하세요</h2>
+      <p class="big-orange display">주황색 포인트 🧡</p>
+      <p class="lead">머리부터 발끝까지 주황색일 필요는 전혀 없습니다. <b>주황색이 들어간 아이템 하나</b>만 몸에 지니고 와주세요. 예를 들면 이런 것들이요!</p>
+    </div>
+    <div class="items">
+      <div class="item reveal">
+        <svg viewBox="0 0 100 100" aria-label="주황 모자">
+          <path d="M26 56 a22 22 0 0 1 44 0 z" fill="#FF7A1A"/>
+          <circle cx="48" cy="31" r="4.5" fill="#E8590C"/>
+          <path d="M48 42 a22 22 0 0 0 -16 14" fill="none" stroke="#E8590C" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M70 58 h13 a8 8 0 0 1 0 16 h-13 z" fill="#E8590C"/>
+          <rect x="22" y="54" width="52" height="10" rx="5" fill="#E8590C"/>
+        </svg>
+        <strong>주황 모자</strong>
+        <span>캡도, 버킷햇도 좋아요</span>
+      </div>
+      <div class="item reveal">
+        <svg viewBox="0 0 100 100" aria-label="주황 스카프">
+          <path d="M26 28 q24 -14 48 0 q4 14 -8 22 q-16 9 -32 0 q-12 -8 -8 -22z" fill="#FF7A1A"/>
+          <path d="M38 48 q-6 22 2 34 l12 -6 q-4 -14 0 -26z" fill="#FF955C"/>
+          <path d="M62 48 q8 20 2 32 l-13 -5 q3 -13 -1 -25z" fill="#E8590C"/>
+          <path d="M40 78 l-2 8 m14 -10 l0 8" stroke="#E8590C" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <strong>주황 스카프 · 머플러</strong>
+        <span>가장 우아한 선택</span>
+      </div>
+      <div class="item reveal">
+        <svg viewBox="0 0 100 100" aria-label="주황 티셔츠">
+          <path d="M35 22 l15 8 15 -8 16 12 -8 14 -8 -5 v37 h-30 v-37 l-8 5 -8 -14z" fill="#FF7A1A"/>
+          <path d="M35 22 a15 9 0 0 0 30 0" fill="none" stroke="#E8590C" stroke-width="4"/>
+          <path d="M42 52 h16 m-16 9 h12" stroke="#FFD9B3" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <strong>주황 상의</strong>
+        <span>티셔츠, 니트, 셔츠 모두 OK</span>
+      </div>
+      <div class="item reveal">
+        <svg viewBox="0 0 100 100" aria-label="주황 양말">
+          <path d="M38 16 h22 v34 q0 8 8 12 l6 4 q10 6 4 16 q-7 10 -19 5 l-15 -9 q-6 -4 -6 -12z" fill="#FF7A1A"/>
+          <rect x="36" y="14" width="26" height="12" rx="4" fill="#E8590C"/>
+          <path d="M44 36 h12 m-12 10 h12" stroke="#FFD9B3" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <strong>주황 양말</strong>
+        <span>은근히 보이는 멋</span>
+      </div>
+      <div class="item reveal">
+        <svg viewBox="0 0 100 100" aria-label="주황 가방">
+          <rect x="24" y="38" width="52" height="42" rx="9" fill="#FF7A1A"/>
+          <path d="M38 38 v-6 a12 12 0 0 1 24 0 v6" fill="none" stroke="#E8590C" stroke-width="6"/>
+          <rect x="24" y="52" width="52" height="7" fill="#E8590C"/>
+          <rect x="44" y="48" width="12" height="14" rx="3" fill="#FFD9B3"/>
+        </svg>
+        <strong>주황 가방</strong>
+        <span>에코백이면 충분</span>
+      </div>
+      <div class="item reveal">
+        <svg viewBox="0 0 100 100" aria-label="주황 액세서리">
+          <path d="M50 44 q-12 -20 -26 -8 q-10 9 2 22 q10 11 24 20 q14 -9 24 -20 q12 -13 2 -22 q-14 -12 -26 8z" fill="#FF7A1A"/>
+          <circle cx="36" cy="44" r="4" fill="#FFD9B3"/>
+        </svg>
+        <strong>주황 소품</strong>
+        <span>브로치, 손수건, 머리끈…</span>
+      </div>
+    </div>
+    <div class="dress-tip reveal">
+      <span class="emoji">💡</span>
+      <div><strong>부담 갖지 마세요!</strong> 단체 사진을 찍었을 때 곳곳에 주황색이 보이면 성공입니다. 집에 주황색이 하나도 없다면, 당일에 호스트가 준비한 비상용 아이템을 빌려드려요.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">See You Soon</span>
+      <h2 class="section-title display">준비물은<br/>거창하지 않습니다</h2>
+      <div class="ready">
+        <span>🗣️ 나의 이야기 하나</span>
+        <span>🧡 주황 포인트 하나</span>
+        <span>👏 박수칠 두 손</span>
+      </div>
+      <p>날짜·장소가 확정되면 개별로 다시 안내드립니다.<br/>발표 주제가 고민될 땐 언제든 호스트에게 말을 걸어주세요.</p>
+      <p class="small">© 2026 FAMILY TED · A private family gathering, by invitation only.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="editions">
+      다른 스타일로 보기 —
+      <a href="light.html">매거진 에디션</a><span>|</span><a href="dark.html">TED 다크 에디션</a>
+    </div>
+    <div>FAMILY TED 2026 · Vol. 01</div>
+  </div>
+</footer>
+
 <script>
   (function () {
-    var mode = null;
-    try { mode = localStorage.getItem("fi-theme"); } catch (e) {}
-    if (mode !== "light" && mode !== "dark") mode = "light";
-    location.replace(mode === "dark" ? "dark.html" : "light.html");
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("on"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    els.forEach(function (el) { io.observe(el); });
   })();
 </script>
-<noscript>
-  <meta http-equiv="refresh" content="0; url=light.html" />
-</noscript>
-</head>
-<body></body>
+</body>
 </html>
