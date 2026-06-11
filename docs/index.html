@@ -193,11 +193,51 @@
   /* ---------- 5. VENUE (light) ---------- */
   .venue { background: #FFFBF5; color: var(--ink); padding: 76px 0 90px; }
   .venue .eyebrow { color: var(--orange-deep); }
-  .tba { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; font-weight: 900; font-size: 16px; border-radius: 999px; padding: 8px 20px; margin-bottom: 18px; }
-  .tba .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity:.45; transform: scale(.85);} 50% { opacity:1; transform: scale(1.15);} }
-  @media (prefers-reduced-motion: reduce) { .tba .pulse { animation: none; } }
   .venue .lead { color: var(--ink-soft); max-width: 620px; }
+  .venue-card {
+    background: #fff; border: 2px solid var(--orange); border-radius: 20px;
+    padding: 26px 24px; margin-top: 6px;
+    box-shadow: 0 16px 40px -24px rgba(232,89,12,0.5);
+  }
+  .venue-card .v-name { font-size: clamp(22px, 5.4vw, 28px); font-weight: 900; color: var(--ink); }
+  .venue-card .v-addr { margin-top: 8px; font-size: 17px; color: var(--ink-soft); }
+  .v-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .v-chips span {
+    background: #FFF1E2; border: 1.5px solid var(--orange-soft); color: var(--ink);
+    font-weight: 700; font-size: 15px; border-radius: 999px; padding: 7px 14px;
+  }
+  .ssd {
+    margin-top: 18px; display: flex; align-items: center; gap: 16px;
+    background: linear-gradient(135deg, #FF7A1A, #E8590C); color: #fff;
+    border-radius: 18px; padding: 20px 22px;
+    box-shadow: 0 14px 34px -18px rgba(232,89,12,0.65);
+  }
+  .ssd .big { font-size: 36px; line-height: 1; }
+  .ssd strong { font-size: clamp(19px, 4.6vw, 23px); font-weight: 900; display: block; }
+  .ssd p { font-size: 15px; margin-top: 3px; color: rgba(255,255,255,0.92); }
+  .map-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+  @media (min-width: 760px) { .map-grid { grid-template-columns: 1fr 1fr; } }
+  .map-card {
+    background: #fff; border: 1.5px solid #F2E3CE; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 10px 26px -18px rgba(92,58,20,0.35);
+  }
+  .map-card .map-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 13px 16px; }
+  .map-card .map-head strong { font-size: 17px; font-weight: 900; color: var(--ink); }
+  .map-card iframe { width: 100%; height: 360px; border: 0; display: block; background: #F4EDE2; }
+  .map-wrap { position: relative; }
+  .map-guard {
+    position: absolute; inset: 0; cursor: pointer;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 14px; background: transparent;
+  }
+  .map-guard span {
+    background: rgba(43,33,24,0.82); color: #fff; font-size: 14px; font-weight: 700;
+    border-radius: 999px; padding: 9px 18px; backdrop-filter: blur(2px);
+  }
+  .map-open { font-size: 14px; font-weight: 900; padding: 8px 14px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
+  .map-open.naver { background: #03C75A; color: #fff; }
+  .map-open.kakao { background: #FAE100; color: #3C1E1E; }
+  .map-note { font-size: 14px; color: var(--ink-soft); margin-top: 12px; }
   .room-art { margin: 44px auto 10px; max-width: 640px; }
   .room-art svg { width: 100%; height: auto; display: block; border-radius: 22px; box-shadow: 0 24px 60px -28px rgba(92,58,20,0.45); }
   .room-caption { text-align: center; font-size: 15px; color: var(--ink-soft); margin-top: 12px; }
@@ -271,7 +311,7 @@
   <p class="hero-sub">한 사람당 <strong>15분</strong>의 무대.<br/>가장 가까운 사람들의 가장 낯선 이야기.</p>
   <div class="hero-badges">
     <span>📅 2026년 7월 17일 (금)</span>
-    <span>📍 파티룸 · 장소 TBA</span>
+    <span>📍 대전 · 텐무드 파티룸</span>
     <span>👨‍👩‍👧‍👦 가족 초대제</span>
   </div>
   <div class="scroll-cue">
@@ -402,10 +442,46 @@
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">Venue · 장소</span>
-      <h2 class="section-title display">장소는 곧 공개됩니다</h2>
-      <div class="tba"><span class="pulse"></span> TBA — 확정되는 대로 안내드려요</div>
-      <p class="lead">기본적으로 <b>파티룸</b>을 빌릴 예정입니다. 발표하기 좋은 장비가 모두 갖춰진 곳으로 준비하고 있어요.</p>
+      <h2 class="section-title display">장소가 확정되었습니다</h2>
+      <div class="venue-card">
+        <div class="v-name">대전 파티룸 텐무드 대흥동점</div>
+        <div class="v-addr">📍 대전 중구 중앙로130번길 35, 6층</div>
+        <div class="v-chips">
+          <span>🚇 중앙로역 3번 출구 도보 4분</span>
+          <span>🏢 건물 6층</span>
+        </div>
+      </div>
+      <div class="ssd">
+        <span class="big">🥐</span>
+        <div>
+          <strong>성심당 본점에서 도보 3분!</strong>
+          <p>모임 전후로 빵 사러 가기 완벽한 위치입니다.</p>
+        </div>
+      </div>
     </div>
+    <div class="map-grid">
+      <div class="map-card reveal">
+        <div class="map-head">
+          <strong>네이버 지도</strong>
+          <a class="map-open naver" href="https://naver.me/GUwiKNdU" target="_blank" rel="noopener">앱에서 열기</a>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://map.naver.com/p/entry/place/1939694535?c=16.00,0,0,0,dh" loading="lazy" title="네이버 지도 — 텐무드 대흥동점"></iframe>
+          <div class="map-guard" onclick="this.style.display='none'"><span>지도를 움직이려면 한 번 터치하세요</span></div>
+        </div>
+      </div>
+      <div class="map-card reveal">
+        <div class="map-head">
+          <strong>카카오맵</strong>
+          <a class="map-open kakao" href="https://map.kakao.com/link/map/%EB%8C%80%EC%A0%84%20%ED%8C%8C%ED%8B%B0%EB%A3%B8%20%ED%85%90%EB%AC%B4%EB%93%9C%20%EB%8C%80%ED%9D%A5%EB%8F%99%EC%A0%90,36.3266235,127.4251507" target="_blank" rel="noopener">앱에서 열기</a>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://map.kakao.com/link/map/%EB%8C%80%EC%A0%84%20%ED%8C%8C%ED%8B%B0%EB%A3%B8%20%ED%85%90%EB%AC%B4%EB%93%9C%20%EB%8C%80%ED%9D%A5%EB%8F%99%EC%A0%90,36.3266235,127.4251507" loading="lazy" title="카카오맵 — 텐무드 대흥동점"></iframe>
+          <div class="map-guard" onclick="this.style.display='none'"><span>지도를 움직이려면 한 번 터치하세요</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="map-note reveal">지도가 잘 보이지 않으면 <b>"앱에서 열기"</b> 버튼을 눌러주세요. 스마트폰에서 네이버 지도 · 카카오맵 앱으로 바로 연결됩니다.</p>
     <div class="room-art reveal" aria-hidden="true">
       <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="파티룸 일러스트: 스크린, 프로젝터, 작은 무대, 마이크">
         <rect width="640" height="400" fill="#3A2A1C"/>
@@ -464,7 +540,7 @@
         </g>
       </svg>
     </div>
-    <p class="room-caption reveal">이런 분위기의 공간을 상상하시면 됩니다 ✨</p>
+    <p class="room-caption reveal">발표하기 좋은 장비가 모두 갖춰진 파티룸입니다 ✨</p>
     <div class="facilities">
       <div class="fac reveal"><span class="ico">📽️</span><strong>프로젝터 & 스크린</strong><span>슬라이드·사진·영상 모두 OK</span></div>
       <div class="fac reveal"><span class="ico">🎤</span><strong>마이크 & 스피커</strong><span>목소리 걱정 없이 또렷하게</span></div>
@@ -562,7 +638,7 @@
         <span>🧡 주황 포인트 하나</span>
         <span>👏 박수칠 두 손</span>
       </div>
-      <p><b>2026년 7월 17일 금요일</b>, 장소가 확정되면 개별로 다시 안내드립니다.<br/>발표 주제가 고민될 땐 언제든 호스트에게 말을 걸어주세요.</p>
+      <p><b>2026년 7월 17일 금요일</b>, 대전 <b>텐무드 파티룸</b>에서 만나요.<br/>발표 주제가 고민될 땐 언제든 호스트에게 말을 걸어주세요.</p>
       <p class="small">© 2026 FAMILY TED · A private family gathering, by invitation only.</p>
     </div>
   </div>
