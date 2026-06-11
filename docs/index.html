@@ -215,29 +215,18 @@
   .ssd .big { font-size: 36px; line-height: 1; }
   .ssd strong { font-size: clamp(19px, 4.6vw, 23px); font-weight: 900; display: block; }
   .ssd p { font-size: 15px; margin-top: 3px; color: rgba(255,255,255,0.92); }
-  .map-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
-  @media (min-width: 760px) { .map-grid { grid-template-columns: 1fr 1fr; } }
-  .map-card {
-    background: #fff; border: 1.5px solid #F2E3CE; border-radius: 18px; overflow: hidden;
-    box-shadow: 0 10px 26px -18px rgba(92,58,20,0.35);
+  .map-btns { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 30px; }
+  @media (min-width: 640px) { .map-btns { grid-template-columns: 1fr 1fr; } }
+  .map-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 18px; font-weight: 900; border-radius: 16px; padding: 18px 20px;
+    text-decoration: none; box-shadow: 0 12px 28px -16px rgba(92,58,20,0.45);
+    transition: transform .2s ease;
   }
-  .map-card .map-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 13px 16px; }
-  .map-card .map-head strong { font-size: 17px; font-weight: 900; color: var(--ink); }
-  .map-card iframe { width: 100%; height: 360px; border: 0; display: block; background: #F4EDE2; }
-  .map-wrap { position: relative; }
-  .map-guard {
-    position: absolute; inset: 0; cursor: pointer;
-    display: flex; align-items: flex-end; justify-content: center;
-    padding-bottom: 14px; background: transparent;
-  }
-  .map-guard span {
-    background: rgba(43,33,24,0.82); color: #fff; font-size: 14px; font-weight: 700;
-    border-radius: 999px; padding: 9px 18px; backdrop-filter: blur(2px);
-  }
-  .map-open { font-size: 14px; font-weight: 900; padding: 8px 14px; border-radius: 999px; text-decoration: none; white-space: nowrap; }
-  .map-open.naver { background: #03C75A; color: #fff; }
-  .map-open.kakao { background: #FAE100; color: #3C1E1E; }
-  .map-note { font-size: 14px; color: var(--ink-soft); margin-top: 12px; }
+  .map-btn:hover { transform: translateY(-3px); }
+  .map-btn.naver { background: #03C75A; color: #fff; }
+  .map-btn.kakao { background: #FAE100; color: #3C1E1E; }
+  .map-note { font-size: 14px; color: var(--ink-soft); margin-top: 12px; text-align: center; }
   .room-art { margin: 44px auto 10px; max-width: 640px; }
   .room-art svg { width: 100%; height: auto; display: block; border-radius: 22px; box-shadow: 0 24px 60px -28px rgba(92,58,20,0.45); }
   .room-caption { text-align: center; font-size: 15px; color: var(--ink-soft); margin-top: 12px; }
@@ -387,51 +376,51 @@
     <div class="reveal">
       <span class="eyebrow">Timeline · 하루의 흐름</span>
       <h2 class="section-title display">이날 하루는<br/>이렇게 흘러갑니다</h2>
-      <p class="lead">든든하게 점심을 먹고, 파티룸으로 자리를 옮겨 본격적으로 시작합니다.</p>
+      <p class="lead">파티룸 대여 시간은 <b>11:00 ~ 17:00</b>. 도착부터 마무리까지 하루를 한 공간에서 보냅니다.</p>
     </div>
     <div class="timeline">
       <div class="t-item reveal">
-        <div class="t-dot">🍚</div>
+        <div class="t-dot">🧳</div>
         <div class="t-body">
           <span class="t-time">11:30</span>
-          <h3>다 같이 점심 식사</h3>
-          <p>가볍고 빠르게! 든든히 먹고 출발합니다.</p>
+          <h3>모임 장소 도착</h3>
+          <p>파티룸에 도착해서 짐을 내려놓고 한숨 돌립니다.</p>
         </div>
       </div>
       <div class="t-item reveal">
-        <div class="t-dot">🚗</div>
+        <div class="t-dot">🍚</div>
         <div class="t-body">
-          <span class="t-time">13:00</span>
-          <h3>파티룸으로 이동</h3>
-          <p>예약된 파티룸으로 함께 이동해 자리를 잡습니다.</p>
+          <span class="t-time">12:00</span>
+          <h3>점심 식사 + 휴식</h3>
+          <p>메뉴는 추후 공지! 든든히 먹고 느긋하게 쉬어갑니다.</p>
         </div>
       </div>
       <div class="t-item reveal">
         <div class="t-dot">🎤</div>
         <div class="t-body">
-          <span class="t-time">13:30</span>
-          <h3>FAMILY TED 본행사</h3>
-          <p>한 사람씩 무대로! 발표 15분 + 박수 + 질문. 발표 순서는 추첨으로 정합니다.</p>
+          <span class="t-time">13:00</span>
+          <h3>커피 & FAMILY TED 본행사</h3>
+          <p>커피 한 잔과 함께 한 사람씩 무대로! 발표 + 박수 + 질문.</p>
         </div>
       </div>
       <div class="t-item reveal">
-        <div class="t-dot">🍰</div>
+        <div class="t-dot">🎲</div>
         <div class="t-body">
-          <span class="t-time">15:30</span>
-          <h3>다과 & 수다 타임</h3>
-          <p>커피 · 과일 · 디저트와 함께 못다 한 이야기를 나눕니다.</p>
+          <span class="t-time">15:00</span>
+          <h3>휴식 & 자유 시간</h3>
+          <p>보드게임, 노래방 등 자유롭게 즐깁니다.</p>
         </div>
       </div>
       <div class="t-item reveal">
         <div class="t-dot">📸</div>
         <div class="t-body">
-          <span class="t-time">17:00</span>
-          <h3>기념사진 · 종료</h3>
+          <span class="t-time">16:30</span>
+          <h3>사진 촬영 · 종료</h3>
           <p>다 함께 단체 사진을 남기고 마무리합니다.</p>
         </div>
       </div>
     </div>
-    <p class="flow-note reveal">⏰ 날짜는 <b>7월 17일 금요일</b>로 확정! 위 시간은 분위기 전달용 <b>가안</b>이며, 확정되면 다시 안내드릴게요.</p>
+    <p class="flow-note reveal">⏰ 날짜는 <b>7월 17일 금요일</b>, 파티룸 대여 시간은 <b>11:00 ~ 17:00</b>입니다. 점심 메뉴는 추후 공지됩니다.</p>
   </div>
 </section>
 
@@ -447,6 +436,7 @@
         <div class="v-name">대전 파티룸 텐무드 대흥동점</div>
         <div class="v-addr">📍 대전 중구 중앙로130번길 35, 6층</div>
         <div class="v-chips">
+          <span>⏰ 대여 시간 11:00 ~ 17:00</span>
           <span>🚇 중앙로역 3번 출구 도보 4분</span>
           <span>🏢 건물 6층</span>
         </div>
@@ -459,29 +449,11 @@
         </div>
       </div>
     </div>
-    <div class="map-grid">
-      <div class="map-card reveal">
-        <div class="map-head">
-          <strong>네이버 지도</strong>
-          <a class="map-open naver" href="https://naver.me/GUwiKNdU" target="_blank" rel="noopener">앱에서 열기</a>
-        </div>
-        <div class="map-wrap">
-          <iframe src="https://map.naver.com/p/entry/place/1939694535?c=16.00,0,0,0,dh" loading="lazy" title="네이버 지도 — 텐무드 대흥동점"></iframe>
-          <div class="map-guard" onclick="this.style.display='none'"><span>지도를 움직이려면 한 번 터치하세요</span></div>
-        </div>
-      </div>
-      <div class="map-card reveal">
-        <div class="map-head">
-          <strong>카카오맵</strong>
-          <a class="map-open kakao" href="https://map.kakao.com/link/map/%EB%8C%80%EC%A0%84%20%ED%8C%8C%ED%8B%B0%EB%A3%B8%20%ED%85%90%EB%AC%B4%EB%93%9C%20%EB%8C%80%ED%9D%A5%EB%8F%99%EC%A0%90,36.3266235,127.4251507" target="_blank" rel="noopener">앱에서 열기</a>
-        </div>
-        <div class="map-wrap">
-          <iframe src="https://map.kakao.com/link/map/%EB%8C%80%EC%A0%84%20%ED%8C%8C%ED%8B%B0%EB%A3%B8%20%ED%85%90%EB%AC%B4%EB%93%9C%20%EB%8C%80%ED%9D%A5%EB%8F%99%EC%A0%90,36.3266235,127.4251507" loading="lazy" title="카카오맵 — 텐무드 대흥동점"></iframe>
-          <div class="map-guard" onclick="this.style.display='none'"><span>지도를 움직이려면 한 번 터치하세요</span></div>
-        </div>
-      </div>
+    <div class="map-btns reveal">
+      <a class="map-btn naver" href="https://naver.me/GUwiKNdU" target="_blank" rel="noopener">🟢 네이버 지도에서 열기</a>
+      <a class="map-btn kakao" href="https://map.kakao.com/link/map/%EB%8C%80%EC%A0%84%20%ED%8C%8C%ED%8B%B0%EB%A3%B8%20%ED%85%90%EB%AC%B4%EB%93%9C%20%EB%8C%80%ED%9D%A5%EB%8F%99%EC%A0%90,36.3266235,127.4251507" target="_blank" rel="noopener">🟡 카카오맵에서 열기</a>
     </div>
-    <p class="map-note reveal">지도가 잘 보이지 않으면 <b>"앱에서 열기"</b> 버튼을 눌러주세요. 스마트폰에서 네이버 지도 · 카카오맵 앱으로 바로 연결됩니다.</p>
+    <p class="map-note reveal">스마트폰에서 누르면 지도 앱으로 바로 연결됩니다.</p>
     <div class="room-art reveal" aria-hidden="true">
       <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="파티룸 일러스트: 스크린, 프로젝터, 작은 무대, 마이크">
         <rect width="640" height="400" fill="#3A2A1C"/>
